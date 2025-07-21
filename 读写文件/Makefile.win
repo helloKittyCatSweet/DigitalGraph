@@ -1,0 +1,31 @@
+# Project: Project1
+# Makefile created by Embarcadero Dev-C++ 6.3
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = test1.o test2.o
+LINKOBJ  = test1.o test2.o
+LIBS     = -L"D:/program_23/dev/Dev-Cpp/TDM-GCC-64/lib" -L"D:/program_23/dev/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/program_23/dev/Dev-Cpp/TDM-GCC-64/include" -I"D:/program_23/dev/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/program_23/dev/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include"
+CXXINCS  = -I"D:/program_23/dev/Dev-Cpp/TDM-GCC-64/include" -I"D:/program_23/dev/Dev-Cpp/TDM-GCC-64/x86_64-w64-mingw32/include" -I"D:/program_23/dev/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include" -I"D:/program_23/dev/Dev-Cpp/TDM-GCC-64/lib/gcc/x86_64-w64-mingw32/9.2.0/include/c++"
+BIN      = homework1.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+DEL      = D:\program_23\dev\Dev-Cpp\DevCpp.exe INTERNAL_DEL
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${DEL} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+test1.o: test1.cpp
+	$(CPP) -c test1.cpp -o test1.o $(CXXFLAGS)
+
+test2.o: test2.cpp
+	$(CPP) -c test2.cpp -o test2.o $(CXXFLAGS)
